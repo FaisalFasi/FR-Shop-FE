@@ -1,0 +1,79 @@
+.contact {
+  background-color: #2879fe;
+  color: white;
+  padding: 15px;
+
+  .wrapper {
+    width: 100%; // Full width on small screens
+    max-width: 70%; // Limit the maximum width on larger screens
+    margin: auto;
+    display: flex;
+    flex-direction: row; // Stack items vertically on small screens
+    align-items: center;
+    justify-content: space-between;
+    text-align: center; // Center-align text and input on small screens
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column; // Stack items vertically on small screens
+      justify-content: center;
+      align-items: center;
+    }
+    span {
+      padding: 0 10px;
+
+      @media screen and (max-width: 768px) {
+        padding: 20px 0;
+      }
+    }
+
+    .mail {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      input {
+        width: 100%; // Full width on small screens
+        padding: 8px;
+        border: none;
+      }
+
+      button {
+        width: 100px;
+        padding: 8px;
+        color: white;
+        background: #333;
+        border: none;
+      }
+    }
+
+    .icons {
+      display: flex;
+
+      gap: 10px;
+      justify-content: space-between;
+      padding: 0 10px;
+
+      // Center-align icons on small screens
+      @media screen and (max-width: 768px) {
+        padding: 20px 0;
+      }
+    }
+  }
+}
+
+// input {
+//   width: 100%; // Full width on small screens
+//   padding: 10px;
+//   margin-bottom: 10px; // Add spacing between input and button
+//   border: none;
+//   border-radius: 5px;
+// }
+
+// button {
+//   width: 100%; // Full width on small screens
+//   padding: 10px;
+//   color: white;
+//   background: #333;
+//   border: none;
+//   border-radius: 5px;
+// }

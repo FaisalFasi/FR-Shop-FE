@@ -1,0 +1,43 @@
+.featuredProducts {
+  margin: 10px 20px; // Reduce margin on smaller screens
+
+  @media screen and (min-width: 768px) {
+    margin: 100px 200px; // Restore margin on larger screens
+  }
+
+  .top {
+    display: flex;
+    flex-direction: column; // Stack items vertically on small screens
+    align-items: center;
+    justify-content: center;
+    text-align: center; // Center-align text on small screens
+    margin-bottom: 20px; // Reduce margin on smaller screens
+    gap: 0px;
+
+    @media screen and (min-width: 768px) {
+      flex-direction: row; // Restore horizontal layout on larger screens
+      margin-bottom: 50px; // Restore margin on larger screens
+      gap: 20px;
+    }
+
+    h1 {
+      text-transform: capitalize;
+      margin-bottom: 10px; // Add spacing between heading and paragraph
+    }
+
+    p {
+      color: gray;
+    }
+  }
+
+  .bottom {
+    display: flex;
+    flex-wrap: wrap; // Allow items to wrap to the next line on smaller screens
+    justify-content: center;
+    gap: 20px; // Reduce gap on smaller screens
+
+    @media screen and (min-width: 768px) {
+      gap: 50px; // Restore gap on larger screens
+    }
+  }
+}
