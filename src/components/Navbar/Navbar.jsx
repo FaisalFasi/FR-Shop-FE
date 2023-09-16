@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { Link } from "react-router-dom";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
@@ -66,9 +66,8 @@ const Navbar = () => {
   };
 
   function getWindowSize() {
-    // Determine window size based on window.innerWidth
     if (window.innerWidth < 768) {
-      return "small"; // You can define your own thresholds for "medium" and "large"
+      return "small";
     } else if (window.innerWidth < 1024) {
       return "medium";
     } else {
@@ -78,13 +77,11 @@ const Navbar = () => {
   console.log(windowSize);
 
   useEffect(() => {
-    // Update windowSize when the window is resized
     function handleResize() {
       setWindowSize(getWindowSize());
     }
 
     window.addEventListener("resize", handleResize);
-    // Clean up the event listener when the component unmounts
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -120,9 +117,8 @@ const Navbar = () => {
                     className="link"
                     to={`/products/${item.id}`}
                     onClick={(e) => {
-                      // e.preventDefault();
                       closeMenu();
-                    }} // Prevent blur when clicking on items
+                    }}
                     onBlur={closeMenu}
                   >
                     {item.name}
@@ -184,71 +180,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-{
-  /* <div className="navbar">
-      <div className="wrapper">
-        <div className="left">
-          <div className="item">
-            <img src="/img/en.png" alt="en.png" />
-            <KeyboardArrowDownIcon />
-          </div>
-          <div className="item">
-            <span>USD</span>
-            <KeyboardArrowDownIcon />
-          </div>
-          <div className="item">
-            <Link className="link" to={"/products/1"}>
-              Women
-            </Link>
-          </div>
-          <div className="item">
-            <Link to={"/products/2"}>Men</Link>
-          </div>{" "}
-          <div className="item">
-            <Link className="link" to={"/products/3"}>
-              Children
-            </Link>
-          </div>
-        </div>
-        <div className="center">
-          <Link className="link" to={"/"}>
-            FR-Store
-          </Link>
-        </div>
-        <div className="right">
-          
-          <div className="item">
-            <Link className="link" to={"/products/1"}>
-              Homepage
-            </Link>
-          </div>{" "}
-          <div className="item">
-            <Link className="link" to={"/products/1"}>
-              About
-            </Link>
-          </div>{" "}
-          <div className="item">
-            <Link className="link" to={"/products/1"}>
-              Contact
-            </Link>
-          </div>{" "}
-          {/* <div className="item">
-            <Link className="link" to={"/products/1"}>
-              Stores
-            </Link>
-          </div> */
-}
-//       <div className="icons">
-//         <SearchOutlinedIcon />
-//         <PersonOutlineIcon />
-//         <FavoriteBorderOutlinedIcon />
-//         <div className="cartIcon" onClick={() => setOpen(!open)}>
-//           <ShoppingCartOutlinedIcon />
-//           <span>{products.length}</span>
-//         </div>
-//       </div>
-//     </div>
-//   </div>
-//   {open && <Cart />}
-// </div> */}
