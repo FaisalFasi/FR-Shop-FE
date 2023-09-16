@@ -44,7 +44,7 @@ const Cart = () => {
       {products?.map((item) => (
         <div className="item" key={item.id}>
           <img
-            src={process.env.REACT_APP_MEDIA_URL + item.img}
+            src={process.env.REACT_APP_UPLOAD_URL + item.img}
             alt="clothe image"
           />
           <div className="details">

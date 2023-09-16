@@ -15,7 +15,7 @@ const Product = () => {
   const id = useParams().id;
   const dispatch = useDispatch();
 
-  const { data, loading, error } = useFetch(`/products/${id}?populate=*`);
+  const { data, loading } = useFetch(`/products/${id}?populate=*`);
 
   return (
     <div className="product">
@@ -27,7 +27,7 @@ const Product = () => {
             <div className="images">
               <img
                 src={
-                  process.env.REACT_APP_MEDIA_URL +
+                  process.env.REACT_APP_UPLOAD_URL +
                   data?.attributes?.img?.data?.attributes?.url
                 }
                 alt=""
@@ -35,7 +35,7 @@ const Product = () => {
               />
               <img
                 src={
-                  process.env.REACT_APP_MEDIA_URL +
+                  process.env.REACT_APP_UPLOAD_URL +
                   data?.attributes?.img2?.data?.attributes?.url
                 }
                 alt=""
@@ -46,7 +46,7 @@ const Product = () => {
               {data && data.attributes && data.attributes.img && (
                 <img
                   src={
-                    process.env.REACT_APP_MEDIA_URL +
+                    process.env.REACT_APP_UPLOAD_URL +
                     data.attributes[selectedImg].data.attributes.url
                   }
                   alt=""

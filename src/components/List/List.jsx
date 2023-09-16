@@ -16,7 +16,7 @@ const List = ({ subCats, maxPrice, sort, catId }) => {
 
   const url = `/products?populate=*&[filters][categories][id]=${catId}&${subCategoryParam}&[filters][price][$lte]=${maxPrice}${sortParam}`;
 
-  const { data, loading, error } = useFetch(url);
+  const { data, loading } = useFetch(url);
   console.log(url);
 
   return (

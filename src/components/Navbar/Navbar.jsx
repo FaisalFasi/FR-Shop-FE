@@ -93,7 +93,7 @@ const Navbar = () => {
     <div className="navbar">
       <div className="wrapper">
         <div className="left">
-          {windowSize != "small" && (
+          {windowSize !== "small" && (
             <div className="left-icons">
               <div className="item">
                 <img src="/img/en.png" alt="en.png" />
@@ -163,7 +163,7 @@ const Navbar = () => {
             })}
           </ul>
           <div className="icons">
-            {windowSize != "small" && (
+            {windowSize !== "small" && (
               <div className="rightIcons">
                 <SearchOutlinedIcon />
                 <PersonOutlineIcon />
