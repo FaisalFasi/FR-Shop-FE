@@ -4,15 +4,20 @@ import Card from "../Card/Card";
 import useFetch from "../../hooks/useFetch";
 
 const List = ({ subCats, maxPrice, sort, catId }) => {
-  // Construct the `sort` parameter for the URL only if it's not null
   const sortParam = sort ? `&sort=price:${sort}` : "";
 
-  // Construct the URL for fetching products
-  const url = `/products?populate=*&[filters][categories][id]=${catId}${subCats.map(
-    (item) => `&[filters][sub_categories][id][$eq]=${item}`
-  )}&[filters][price][$lte]=${maxPrice}${sortParam}`;
+  // Create an array to store sub-category filter strings
+  const subCategoryFilters = subCats.map(
+    (item) => `[filters][sub_categories][id][$eq]=${item}`
+  );
+
+  // Join the sub-category filter strings with "&" to create a single parameter
+  const subCategoryParam = subCategoryFilters.join("&");
+
+  const url = `/products?populate=*&[filters][categories][id]=${catId}&${subCategoryParam}&[filters][price][$lte]=${maxPrice}${sortParam}`;
 
   const { data, loading, error } = useFetch(url);
+  console.log(url);
 
   return (
     <div className="list">
