@@ -7,4 +7,19 @@ const makeRequest = axios.create({
   },
 });
 
+// Add an interceptor to handle errors globally
+makeRequest.interceptors.response.use(
+  (response) => {
+    // Return the successful response data
+    return response.data;
+  },
+  (error) => {
+    // Handle and log the error
+    console.error("Request error:", error);
+
+    // Throw the error to propagate it to the caller
+    throw error;
+  }
+);
+
 export default makeRequest;

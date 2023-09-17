@@ -74,7 +74,6 @@ const Navbar = () => {
       return "large";
     }
   }
-  console.log(windowSize);
 
   useEffect(() => {
     function handleResize() {
