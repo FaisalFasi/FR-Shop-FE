@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const makeRequest = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || "http://127.0.0.1:1337",
+  baseURL: process.env.REACT_APP_API_URL || process.env.REACT_APP_UPLOAD_URL,
   headers: {
     Authorization: "bearer " + process.env.REACT_APP_API_TOKEN,
   },
