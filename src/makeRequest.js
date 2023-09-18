@@ -1,12 +1,11 @@
 import axios from "axios";
 
 const makeRequest = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || process.env.REACT_APP_UPLOAD_URL,
+  baseURL: process.env.REACT_APP_API_URL,
   headers: {
     Authorization: "bearer " + process.env.REACT_APP_API_TOKEN,
   },
 });
-
 // Add an interceptor to handle errors globally
 makeRequest.interceptors.response.use(
   (response) => {

@@ -19,10 +19,12 @@ const FeaturedProducts = ({ type }) => {
       </div>
       <div className="bottom">
         {error
-          ? "something went wrong!"
+          ? "Something went wrong!"
           : loading
           ? "Loading"
-          : data.map((item) => <Card item={item} key={item.id} />)}
+          : Array.isArray(data) // Check if data is an array
+          ? data.map((item) => <Card item={item} key={item.id} />)
+          : "Data not available"}
       </div>
     </div>
   );
