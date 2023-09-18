@@ -14,11 +14,11 @@ makeRequest.interceptors.response.use(
   },
   (error) => {
     // Handle and log the error
-    console.error("Request error:", error);
+    console.error("Request error:", error.message); // Log the error message
+    console.error("Response status:", error.response?.status); // Log the response status
 
     // Throw the error to propagate it to the caller
     throw error;
   }
 );
-
 export default makeRequest;
